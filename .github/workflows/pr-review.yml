@@ -34,10 +34,12 @@ jobs:
           EOF
           chmod 600 ~/.snowflake/connections.toml
 
-      - name: Install CoCo CLI
+      - name: Install CoCo CLI and Load Local Plugin
         run: |
           curl -LsS https://ai.snowflake.com/static/cc-scripts/install.sh | sh
           echo "$HOME/.local/bin" >> $GITHUB_PATH
+          mkdir -p ~/.snowflake/cortex/plugins
+          cp -r .cortex/plugins/coco-de-guide ~/.snowflake/cortex/plugins/
 
       - name: Run dbt-review agent
         run: |
