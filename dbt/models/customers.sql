@@ -4,7 +4,7 @@ SELECT
     c_address                               AS address,
     c_phone                                 AS phone,
     c_acctbal                               AS account_balance,
-    c_mktsegment                            AS market_segment,
+    c_mktsegment                            AS market_segments,
     n.n_name                                AS nation,
     r.r_name                                AS region
 FROM {{ source('tpch', 'customer') }} c
